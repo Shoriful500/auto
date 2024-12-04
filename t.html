@@ -90,6 +90,19 @@
     </style>
 </head>
 <body>
+     <div class="user-card">
+        <div class="user-info">
+            <img src="https://via.placeholder.com/50" alt="User Avatar" class="user-avatar">
+            <div class="user-details">
+                <h2 id="userName">Your Name</h2>
+                <p>Number: <span id="userNumber">000000</span></p>
+            </div>
+        </div>
+        <div class="balance-info">
+            <p>Points: <span id="userPoints">0</span></p>
+            <p>Balance: $<span id="userBalance">0.00</span></p>
+        </div>
+    </div>
 
     <h1>Monetag Ads Example</h1>
     <button onclick="showAd()">ADS AUTO REFRESH</button>
@@ -101,7 +114,51 @@
         <script src='//niphaumeenses.net/vignette.min.js' data-zone='8561657' data-sdk='show_8561657'></script>
         <!-- End of Monetag Ads Script -->
     </div>
+         <div class="modal" id="userModal">
+        <div class="modal-content">
+            <h3>What's your name and number?</h3>
+            <input type="text" id="inputName" placeholder="Enter your name">
+            <input type="text" id="inputNumber" placeholder="Enter your number">
+            <button onclick="saveUserInfo()">Save</button>
+        </div>
+    </div>
     <script>
+         let points = 0;
+        let balance = 0;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedName = localStorage.getItem('userName');
+            const savedNumber = localStorage.getItem('userNumber');
+            const userModal = document.getElementById('userModal');
+            
+            if (savedName && savedNumber) {
+                document.getElementById('userName').textContent = savedName;
+                document.getElementById('userNumber').textContent = savedNumber;
+            } else {
+                userModal.classList.add('active');
+            }
+
+            // Display saved points and balance
+            points = parseInt(localStorage.getItem('userPoints') || '0');
+            balance = parseFloat(localStorage.getItem('userBalance') || '0.00');
+            updateBalance();
+        });
+
+        function saveUserInfo() {
+            const name = document.getElementById('inputName').value;
+            const number = document.getElementById('inputNumber').value;
+
+            if (name && number) {
+                localStorage.setItem('userName', name);
+                localStorage.setItem('userNumber', number);
+                document.getElementById('userName').textContent = name;
+                document.getElementById('userNumber').textContent = number;
+                document.getElementById('userModal').classList.remove('active');
+            } else {
+                alert("Please enter both your name and number.");
+            }
+        }
+
      show_8553105().then(() => {
     // You need to add your user reward function here, which will be executed after the user watches the ad.
     // For more details, please refer to the detailed instructions.

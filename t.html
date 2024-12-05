@@ -4,62 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monetag Ads Button</title>
+    <script src='//niphaumeenses.net/vignette.min.js' data-zone='8607237' data-sdk='show_8607237'></script>
     <style>
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
+            margin: 20px;
             font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
-            color: #ffd700;
+            background-color: #56ad0e;
+            color: #cb4e38;
             padding: 20px;
             box-sizing: border-box;
             padding-bottom: 90px;
-        }
-        .user-card {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px;
-            width: 90%;
-            max-width: 400px;
-            background: #333333;
-            border: 2px solid #ffd700;
-            border-radius: 15px;
-            margin-top: 30px;
-            color: #ffd700;
-            box-sizing: border-box;
-        }
-        .user-info {
-            display: flex;
-            align-items: center;
-            padding-right: 10px;
-        }
-        .user-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-            border: 2px solid #ffd700;
-        }
-        .user-details h2 {
-            margin: 0;
-            font-size: 18px;
-        }
-        .user-details p {
-            margin: 0;
-        }
-        .balance-info {
-            text-align: right;
         }
         button {
             background-color: #4CAF50;
             color: white;
             padding: 10px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 14px;
             cursor: pointer;
             font-size: 16px;
         }
@@ -68,103 +33,31 @@
             transform: scale(1.05);
         }
         #ad-container {
-            margin-top: 30px;
-            margin-border: 20px
+            margin-top: 0px;
+            margin-border: 0px
             display: showAd;
             display: reward;
             display: viewport;
             display: Show;
-            text-align: center;
-            padding: 30px;
-            background: #333333;
-            border: 2px solid #ffd700;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 400px;
-            color: #ffd700;
-            margin: 250px auto 20px;
-            box-sizing: border-box;
 
             
         }
     </style>
+    <script src='//niphaumeenses.net/vignette.min.js' data-zone='8607237' data-sdk='show_8607237'></script>
 </head>
 <body>
-     <div class="user-card">
-        <div class="user-info">
-            <img src="https://via.placeholder.com/50" alt="User Avatar" class="user-avatar">
-            <div class="user-details">
-                <h2 id="userName">Your Name</h2>
-                <p>Number: <span id="userNumber">000000</span></p>
-            </div>
-        </div>
-        <div class="balance-info">
-            <p>Points: <span id="userPoints">0</span></p>
-            <p>Balance: $<span id="userBalance">0.00</span></p>
-        </div>
-    </div>
 
     <h1>Monetag Ads Example</h1>
-    <button onclick="showAd()">ADS AUTO REFRESH</button>
+    <button onclick="showAd()">ADS REFRESH</button>
     <body onload="autoRefresh()">
 
     <div id="ad-container">
         <!-- Monetag Ads Script -->
-        <script src='//niphaumeenses.net/vignette.min.js' data-zone='8553105' data-sdk='show_8553105'></script>
-        <script src='//niphaumeenses.net/vignette.min.js' data-zone='8561657' data-sdk='show_8561657'></script>
+        <script src='//niphaumeenses.net/vignette.min.js' data-zone='8607237' data-sdk='show_8607237'></script>
         <!-- End of Monetag Ads Script -->
     </div>
-         <div class="modal" id="userModal">
-        <div class="modal-content">
-            <h3>What's your name and number?</h3>
-            <input type="text" id="inputName" placeholder="Enter your name">
-            <input type="text" id="inputNumber" placeholder="Enter your number">
-            <button onclick="saveUserInfo()">Save</button>
-        </div>
-    </div>
     <script>
-         let points = 0;
-        let balance = 0;
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedName = localStorage.getItem('userName');
-            const savedNumber = localStorage.getItem('userNumber');
-            const userModal = document.getElementById('userModal');
-            
-            if (savedName && savedNumber) {
-                document.getElementById('userName').textContent = savedName;
-                document.getElementById('userNumber').textContent = savedNumber;
-            } else {
-                userModal.classList.add('active');
-            }
-
-            // Display saved points and balance
-            points = parseInt(localStorage.getItem('userPoints') || '0');
-            balance = parseFloat(localStorage.getItem('userBalance') || '0.00');
-            updateBalance();
-        });
-
-        function saveUserInfo() {
-            const name = document.getElementById('inputName').value;
-            const number = document.getElementById('inputNumber').value;
-
-            if (name && number) {
-                localStorage.setItem('userName', name);
-                localStorage.setItem('userNumber', number);
-                document.getElementById('userName').textContent = name;
-                document.getElementById('userNumber').textContent = number;
-                document.getElementById('userModal').classList.remove('active');
-            } else {
-                alert("Please enter both your name and number.");
-            }
-        }
-
-     show_8553105().then(() => {
-    // You need to add your user reward function here, which will be executed after the user watches the ad.
-    // For more details, please refer to the detailed instructions.
-    })
-
-     show_8561657().then(() => {
+     show_8607237().then(() => {
     // You need to add your user reward function here, which will be executed after the user watches the ad.
     // For more details, please refer to the detailed instructions.
     })
@@ -173,7 +66,7 @@
          function autoRefresh() {
             setTimeout(function() {
                 location.reload(); // পেজ রিফ্রেশ
-            }, 15000); // ৫ সেকেন্ড (৫০০০ মিলিসেকেন্ড)
+            }, 17000); // 17 সেকেন্ড (৫০০০ মিলিসেকেন্ড)
         }
 
     </script>
